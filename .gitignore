@@ -1,0 +1,13 @@
+# Binaries
+selfext
+build/
+*.exe
+
+# Environment
+.env
+*.json
+!config.example.json
+
+# OS
+.DS_Store
+Thumbs.db
