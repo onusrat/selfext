@@ -464,7 +464,7 @@ func containsDenyPattern(text string) (bool, string) {
 type execTool struct{}
 
 func (t *execTool) Name() string        { return "exec" }
-func (t *execTool) Description() string  { return "Execute a shell command and return its output." }
+func (t *execTool) Description() string { return "Execute a shell command and return its output." }
 func (t *execTool) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type": "object",
@@ -534,7 +534,7 @@ func (t *execTool) Execute(ctx context.Context, args map[string]interface{}) *To
 type readFileTool struct{}
 
 func (t *readFileTool) Name() string        { return "read_file" }
-func (t *readFileTool) Description() string  { return "Read the contents of a file." }
+func (t *readFileTool) Description() string { return "Read the contents of a file." }
 func (t *readFileTool) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type": "object",
@@ -572,8 +572,10 @@ func (t *readFileTool) Execute(ctx context.Context, args map[string]interface{})
 
 type writeFileTool struct{}
 
-func (t *writeFileTool) Name() string        { return "write_file" }
-func (t *writeFileTool) Description() string  { return "Write content to a file, creating directories as needed." }
+func (t *writeFileTool) Name() string { return "write_file" }
+func (t *writeFileTool) Description() string {
+	return "Write content to a file, creating directories as needed."
+}
 func (t *writeFileTool) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type": "object",
@@ -620,7 +622,7 @@ func (t *writeFileTool) Execute(ctx context.Context, args map[string]interface{}
 type listDirTool struct{}
 
 func (t *listDirTool) Name() string        { return "list_dir" }
-func (t *listDirTool) Description() string  { return "List files and directories in a given path." }
+func (t *listDirTool) Description() string { return "List files and directories in a given path." }
 func (t *listDirTool) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type": "object",
@@ -668,7 +670,7 @@ func (t *listDirTool) Execute(ctx context.Context, args map[string]interface{}) 
 
 type editFileTool struct{}
 
-func (t *editFileTool) Name() string        { return "edit_file" }
+func (t *editFileTool) Name() string { return "edit_file" }
 func (t *editFileTool) Description() string {
 	return "Edit a file by replacing an exact string match. The old_string must appear exactly once in the file."
 }
@@ -744,8 +746,8 @@ type ScriptTool struct {
 	timeout     time.Duration
 }
 
-func (t *ScriptTool) Name() string                    { return t.name }
-func (t *ScriptTool) Description() string             { return t.description }
+func (t *ScriptTool) Name() string                       { return t.name }
+func (t *ScriptTool) Description() string                { return t.description }
 func (t *ScriptTool) Parameters() map[string]interface{} { return t.params }
 
 func (t *ScriptTool) Execute(ctx context.Context, args map[string]interface{}) *ToolResult {
@@ -1185,7 +1187,7 @@ type listCustomToolsMeta struct {
 }
 
 func (t *listCustomToolsMeta) Name() string        { return "list_custom_tools" }
-func (t *listCustomToolsMeta) Description() string  { return "List all registered custom tools." }
+func (t *listCustomToolsMeta) Description() string { return "List all registered custom tools." }
 func (t *listCustomToolsMeta) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type":       "object",
@@ -1231,7 +1233,7 @@ type removeToolMeta struct {
 }
 
 func (t *removeToolMeta) Name() string        { return "remove_tool" }
-func (t *removeToolMeta) Description() string  { return "Remove a custom tool by name." }
+func (t *removeToolMeta) Description() string { return "Remove a custom tool by name." }
 func (t *removeToolMeta) Parameters() map[string]interface{} {
 	return map[string]interface{}{
 		"type": "object",
@@ -1279,7 +1281,7 @@ type updateToolMeta struct {
 	store    *ToolStore
 }
 
-func (t *updateToolMeta) Name() string        { return "update_tool" }
+func (t *updateToolMeta) Name() string { return "update_tool" }
 func (t *updateToolMeta) Description() string {
 	return "Update an existing custom tool. Only provide the fields you want to change."
 }
